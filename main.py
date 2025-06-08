@@ -1,6 +1,8 @@
 import requests
 import streamlit as st
 
+st.title("Get a Daily Image from NASA")
+
 Api_key = "FHVHGGEP6yOF3stTOjdnApSyjzB60Oqum65r1lHG"
 url = f"https://api.nasa.gov/planetary/apod?api_key={Api_key}"
 
@@ -16,8 +18,9 @@ response = requests.get(image_url)
 with open(image_filepath, "wb") as file:
     file.write(response.content)
 
-
-st.title(title)
-st.image(image_filepath)
-st.write(description)
+if st.button("Fetch Image"):
+    st.title(title)
+    st.image(image_filepath)
+    st.subheader("Description")
+    st.write(description)
 
