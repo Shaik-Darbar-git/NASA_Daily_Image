@@ -19,7 +19,7 @@ with open(image_filepath, "wb") as file:
     file.write(response.content)
 
 if st.button("Fetch Image"):
-    st.title(title)
+    st.subheader(title)
     st.image(image_filepath)
     st.subheader("Description")
     st.write(description)
